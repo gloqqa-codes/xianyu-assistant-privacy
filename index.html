@@ -19,24 +19,89 @@
   ul { padding-left: 1.3em; }
   li { margin-bottom: 0.5em; }
   code { background: #f5f5f5; padding: 2px 5px; border-radius: 3px; font-size: 0.9em; }
+  table { border-collapse: collapse; width: 100%; margin: 1em 0; font-size: 0.95em; }
+  th, td { text-align: left; padding: 8px 10px; border-bottom: 1px solid #eee; vertical-align: top; }
+  th { background: #f7f7f7; }
   .contact { background: #f9f9f9; padding: 16px 20px; border-radius: 6px; margin-top: 2em; }
 </style>
 </head>
 <body>
 
 <h1>Privacy Policy</h1>
-<p class="updated">Xianyu (Goofish.com) Assistant — Last updated: July 8, 2026</p>
+<p class="updated">Xianyu (Goofish.com) Assistant — Last updated: November 12, 2026 · Applies to version 2.8.2 and later</p>
 
-<p>This Privacy Policy explains how the Xianyu (Goofish.com) Assistant browser extension ("the extension") handles data. This extension is an independent, third‑party tool and is not affiliated with, endorsed by, or officially connected to Xianyu (goofish.com), Alibaba, Google, DeepSeek, or Superbuy.</p>
+<p>This Privacy Policy explains how the Xianyu (Goofish.com) Assistant browser extension ("the extension") handles data. This extension is an independent, third‑party tool and is not affiliated with, endorsed by, or officially connected to Xianyu (goofish.com), 1688.com, Alibaba, Taobao, Tmall, Google, DeepSeek, Superbuy, or SugarGoo.</p>
 
 <h2>Summary</h2>
-<p>The extension does not collect, store, or transmit any personal data to our own servers. There are two narrow exceptions, described below, both of which exist solely to power the features you actively use.</p>
+<p>The extension does not collect, store, or transmit any personal data to our own servers, and there are no accounts, no analytics and no tracking. Everything it needs in order to work is either computed on your device or sent directly from your browser to the single third‑party service required for the feature you are using. Every one of those requests is listed below.</p>
+
+<h2>Network requests made by the extension</h2>
+<table>
+<thead>
+<tr>
+<th>When</th>
+<th>Where</th>
+<th>What is sent</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>About once a day, in the background</td>
+<td><code>api.exchangerate-api.com</code></td>
+<td>A request for CNY exchange rates. No personal data.</td>
+</tr>
+<tr>
+<td>You use the translated search box on Xianyu, 1688, Taobao or Tmall</td>
+<td><code>translate.googleapis.com</code> (Google Translate)</td>
+<td>The search text you typed, so it can be translated into Chinese. Google's privacy policy applies to it.</td>
+</tr>
+<tr>
+<td>You click "Advanced Search"</td>
+<td>Your clipboard, then <code>chat.deepseek.com</code></td>
+<td>See "Advanced Search and DeepSeek" below.</td>
+</tr>
+</tbody>
+</table>
+<p>No other network requests are made. The Buy and Save buttons, the Alibaba welcome message and the Superbuy sign‑in check make no network requests of their own.</p>
 
 <h2>What data is transmitted, and to whom</h2>
 <ul>
-  <li><strong>Search translation (Google Translate):</strong> When you type a search term into the extension's floating search box, that text is sent directly to Google's translation API (<code>translate.googleapis.com</code>) to convert it into Chinese before the search runs on Xianyu. No account information, browsing history, or other identifying data is sent — only the text you typed into that specific box, at the moment you use it.</li>
-  <li><strong>Advanced Search (DeepSeek hand-off):</strong> If you click "Advanced Search," the extension copies a ready-made prompt to your device's clipboard and opens <code>chat.deepseek.com</code> in a new tab. The extension does not send anything to DeepSeek itself — it only writes to your local clipboard. Whether you then paste and submit that text into DeepSeek's chat is your choice, and that exchange is governed by DeepSeek's own privacy policy, not this one.</li>
+  <li><strong>Search translation (Google Translate):</strong> When you type a search term into the extension's floating search box on Xianyu, 1688, Taobao or Tmall, that text is sent directly to Google's translation API (<code>translate.googleapis.com</code>) to convert it into Chinese before the search runs. No account information, browsing history, or other identifying data is sent — only the text you typed into that specific box, at the moment you use it. Recently used translations are cached on your device so the same term does not have to be sent twice.</li>
+  <li><strong>Advanced Search (DeepSeek hand-off):</strong> If you click "Advanced Search," the extension copies a ready-made prompt, which includes the search term you typed, to your device's clipboard and to local extension storage, then opens <code>chat.deepseek.com</code> in a new tab. The extension does not send anything to DeepSeek itself. See the dedicated section below for exactly what happens on DeepSeek's page.</li>
 </ul>
+
+<h2>What the extension reads on web pages</h2>
+<ul>
+  <li><strong>Page address, product links and displayed prices</strong> on goofish.com, 1688.com, Taobao, Tmall and Alibaba.com, so it can recognise product pages, add Buy buttons and work out converted prices. This happens on your device and is not transmitted.</li>
+  <li><strong>Page title and main image address</strong>, only when you click <strong>Save for Later</strong> (the standard Open Graph image and title, or the largest image and the page title). They are saved on your device.</li>
+  <li><strong>On Superbuy:</strong> only whether "Sign in / Sign up" buttons are visible. See "Superbuy sign‑in detection" below.</li>
+  <li><strong>On DeepSeek:</strong> only the empty message box, so it can be filled with the prompt you asked for.</li>
+  <li>The extension <strong>does not read your cookies, passwords, payment details, orders, messages, or account information</strong> on any site.</li>
+</ul>
+
+<h2>What the extension stores on your device</h2>
+<p>All of the following stays in your browser. None of it is sent anywhere, except the search text described above and the routine requests in the table.</p>
+<ul>
+  <li><strong>Your settings:</strong> preferred currency, display language, shopping agent, Superbuy link mode, and feature toggles.</li>
+  <li><strong>Your saved items:</strong> products you chose to Save for Later — address, title, image address and the date — plus any groups you created and their order.</li>
+  <li><strong>Caches:</strong> exchange rates (and the time they were fetched) and translations of search terms you have used.</li>
+  <li><strong>Search helper data:</strong> the last search term you typed (so "Advanced Search" can reuse it), and, for up to 10 minutes after you click "Advanced Search", the prompt prepared for DeepSeek.</li>
+  <li><strong>Small flags:</strong> that you accepted the terms, that the Alibaba welcome message has been shown, and that you have used the Warehouse button.</li>
+  <li><strong>Superbuy sign‑in flag:</strong> a single yes/no value and the time it was last checked (see "Superbuy sign‑in detection").</li>
+  <li><strong>A pending purchase:</strong> after you click a Buy link, the product page address is kept for up to 30 minutes (see below).</li>
+</ul>
+<p>Settings use the browser's sync storage, so if you are signed in to Chrome or Firefox Sync your browser may sync them between your own devices, under the browser vendor's privacy policy. Nothing else is synced.</p>
+
+<h2>Advanced Search and DeepSeek</h2>
+<p>When you click <strong>Advanced Search</strong>, the extension copies a ready-made prompt, which includes the search term you typed, to your clipboard and opens DeepSeek (<code>chat.deepseek.com</code>) in a new tab. It also keeps the prompt in local storage for up to 10 minutes so it can show a "Paste into search box" button on DeepSeek. <strong>Nothing is sent to DeepSeek unless you press send yourself.</strong> On DeepSeek's page the extension checks only its own local storage (never your system clipboard) and, if a valid prompt is found, offers a one‑click button; it fills the message box only when you click that button. It does not read your DeepSeek conversations or account. What you submit on DeepSeek is handled under DeepSeek's own terms and privacy policy. The extension requests clipboard‑write access only — it does not read your clipboard.</p>
+
+<h2>Superbuy sign‑in detection and Buy links</h2>
+<p>On superbuy.com the extension checks whether the page is showing "Sign in / Sign up" buttons and saves one yes/no flag (and the time) on your device. While the flag says you are signed in, Buy links go straight to Superbuy's buy page <strong>without</strong> the developer's affiliate code, so you are not sent back to the login page. The flag is cleared if you sign out, and forgotten after 60 days without being seen.</p>
+<p>When you click a Buy link, the product page address is kept on your device for up to 30 minutes, so that if Superbuy asks you to sign in or register, the extension can take you to that product afterwards. It is deleted as soon as it is used or expires, and it is never sent anywhere other than to Superbuy as part of the link you clicked.</p>
+<p>If you are not signed in, the extension may reload a Superbuy sign‑in, sign‑up or buy page once with the developer's affiliate code added to its web address, so a sign‑up you make there is credited. This only happens on Superbuy pages you reached by clicking a Buy link from the extension. You can change this in <strong>Settings → Superbuy links</strong> (Auto, Always direct, or Always use the sign‑up link).</p>
+
+<h2>Affiliate disclosure</h2>
+<p>Buy buttons, the Warehouse button and some sign‑up links lead to Superbuy and SugarGoo. <strong>These are affiliate links:</strong> if you register or buy through them, the extension's developer may earn a commission <strong>at no extra cost to you</strong>. When you click, the product page address is passed to the agent in the link. Affiliate links open only when you click them — the extension never rewrites or replaces affiliate codes on third‑party pages. The agents' handling of your data is governed by their own privacy policies.</p>
 
 <h2>What the extension does NOT do</h2>
 <ul>
@@ -44,13 +109,19 @@
   <li>It does not collect personally identifiable information, financial or payment information, authentication credentials, health information, or location data.</li>
   <li>It does not sell, rent, or share any data with third parties for advertising, profiling, or any purpose beyond the specific features described above.</li>
   <li>It does not use data for creditworthiness or lending determinations.</li>
+  <li>It does not process payments or place orders on your behalf.</li>
 </ul>
 
-<h2>Local storage</h2>
-<p>The extension uses the browser's local <code>storage</code> permission to save your preferences (e.g., preferred currency, feature toggles) and cached exchange rates on your own device. This data stays local to your browser and is never transmitted anywhere.</p>
-
 <h2>Exchange rate data</h2>
-<p>The extension periodically fetches current currency exchange rates from <code>api.exchangerate-api.com</code> to keep price conversions accurate. This is a one-way fetch of public exchange-rate data; no user data is sent as part of this request.</p>
+<p>The extension periodically fetches current currency exchange rates from <code>api.exchangerate-api.com</code> (about once every 23 hours) to keep price conversions accurate. This is a one-way fetch of public exchange-rate data; no user data is sent as part of this request.</p>
+
+<h2>Permissions</h2>
+<ul>
+  <li><code>storage</code>: settings, saved items, caches and the small flags listed above.</li>
+  <li><code>alarms</code>: the daily exchange-rate refresh.</li>
+  <li><code>clipboardWrite</code>: copying the Advanced Search prompt when you click it.</li>
+  <li>Site access for goofish.com and 1688.com (price conversion, search box, Buy buttons, Save for Later, login-popup blocking), taobao.com / tmall.com / tmall.hk (price conversion, search box, Buy buttons, Save for Later), alibaba.com (welcome message and Buy button), superbuy.com (sign‑in detection), api.exchangerate-api.com (rates), translate.googleapis.com (search translation) and chat.deepseek.com (paste helper). Each is used only for the feature described next to it.</li>
+</ul>
 
 <h2>Third-party services referenced</h2>
 <p>This extension links to or interacts with the following third-party services, each governed by its own privacy policy:</p>
@@ -58,11 +129,23 @@
   <li>Google Translate (translation of search terms)</li>
   <li>DeepSeek (optional chat hand-off for advanced search phrasing)</li>
   <li>Superbuy (optional international shipping service, via affiliate link)</li>
+  <li>SugarGoo (optional international shipping service, via affiliate link)</li>
   <li>exchangerate-api.com (public exchange rate data)</li>
+  <li>Xianyu (goofish.com), 1688.com, Taobao, Tmall and Alibaba.com (the marketplaces the extension adds features to)</li>
 </ul>
 
 <h2>Limited Use disclosure</h2>
 <p>The extension's use of information received from Google APIs adheres to the <a href="https://developer.chrome.com/docs/webstore/program-policies/limited-use" target="_blank" rel="noopener">Chrome Web Store User Data Policy</a>, including the Limited Use requirements.</p>
+
+<h2>Security</h2>
+<p>All code runs inside the extension package — no code is downloaded from the internet. Requests to the services listed above are made over HTTPS.</p>
+
+<h2>Your control</h2>
+<ul>
+  <li>Turn off any feature in the extension's settings, including price conversion, search translation and the Superbuy integration.</li>
+  <li>Delete saved items from the popup or the Save for Later page.</li>
+  <li>Uninstalling the extension removes all data it stored on your device.</li>
+</ul>
 
 <h2>Changes to this policy</h2>
 <p>If this policy changes, the updated version will be posted at this same URL with a revised "Last updated" date.</p>
